@@ -12,5 +12,5 @@ R_RAAN_3 = [cosd(RAAN) sind(RAAN) 0;-sind(RAAN) cosd(RAAN) 0;0 0 1];
 
 rotation_matrix = ((R_arg_prg_3)*(R_inc_angle_1)*(R_RAAN_3))';
 
-% For example) R_xyz = PQW2ECI(30, 15, 30) * R_pqw
+% For example) Rxyz = PQW2ECI(30, 15, 30) * Rpqw
 % ** For Degree dimension **
