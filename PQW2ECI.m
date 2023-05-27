@@ -10,7 +10,7 @@ R_arg_prg_3 = [cos2d(arg_prg) sin2d(arg_prg) 0;-sin2d(arg_prg) cos2d(arg_prg) 0;
 R_inc_angle_1 = [1 0 0;0 cos2d(inc_angle) sin2d(inc_angle);0 -sin2d(inc_angle) cos2d(inc_angle)];
 R_RAAN_3 = [cos2d(RAAN) sin2d(RAAN) 0;-sin2d(RAAN) cos2d(RAAN) 0;0 0 1];
 
-rotation_matrix = ((R_arg_prg_3)*(R_inc_angle_1)*(R_RAAN_3))';
+rotation_matrix = ((R_RAAN_3)*(R_inc_angle_1)*(R_arg_prg_3))';
 
 % For example) Rxyz = PQW2ECI(30, 15, 30) * Rpqw
 % ** For Degree dimension **
