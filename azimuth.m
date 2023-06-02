@@ -11,5 +11,5 @@ end
 
 % creating az matrix
 for j=0:numRows-1
-    az(j+1)=cos2d(R_N(j+1),sqrt(R_E(j+1)^2+R_N(j+1)^2));
+    az(j+1)=acosd(R_N(j+1)/sqrt(R_E(j+1)^2+R_N(j+1)^2));
 end
