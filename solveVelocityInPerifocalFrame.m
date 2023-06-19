@@ -8,4 +8,4 @@ e=eccentricity;
 P=a*(1-e^2);
 mu=3.986004418*10^14;
 
-velocityInPQW = sqrt(mu/P)*[-sind(true_anomaly);e+cosd(true_anomaly);0];
+velocityInPQW = sqrt(mu/P)*[-sin(true_anomaly);e+cos(true_anomaly);0];
