@@ -5,16 +5,10 @@ function rotation_matrix = PQW2ECI(arg_prg, inc_angle, RAAN)
 % inc_angle = inclination angle (i)
 % RAAN = right scension of the ascending node (capital omega)
 % R/xyz = (R(arg_prg,3)*R(inc_angle,1)*R(RAAN,3))'*R/pqw
-r2d=180/pi;
-arg_prg=arg_prg*r2d;
-inc_angle=inc_angle*r2d;
-RAAN=RAAN*r2d;
 
-R_arg_prg_3 = [cosd(arg_prg) sind(arg_prg) 0;-sind(arg_prg) cosd(arg_prg) 0;0 0 1];
-R_inc_angle_1 = [1 0 0;0 cosd(inc_angle) sind(inc_angle);0 -sind(inc_angle) cosd(inc_angle)];
-R_RAAN_3 = [cosd(RAAN) sind(RAAN) 0;-sind(RAAN) cosd(RAAN) 0;0 0 1];
+R_arg_prg_3 = [cos(arg_prg) sin(arg_prg) 0;-sin(arg_prg) cos(arg_prg) 0;0 0 1];
+R_inc_angle_1 = [1 0 0;0 cos(inc_angle) sin(inc_angle);0 -sid(inc_angle) cos(inc_angle)];
+R_RAAN_3 = [cos(RAAN) sin(RAAN) 0;-sin(RAAN) cos(RAAN) 0;0 0 1];
 
-rotation_matrix = ((R_RAAN_3)*(R_inc_angle_1)*(R_arg_prg_3))';
-
-% For example) Rxyz = PQW2ECI(30, 15, 30) * Rpqw
-% ** For Degree dimension **
+rotation_matrix = ((R_arg_prg_3)*(R_inc_angle_1)*(R_RAAN_3))';
+end

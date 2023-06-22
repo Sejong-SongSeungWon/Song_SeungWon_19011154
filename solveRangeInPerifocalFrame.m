@@ -4,8 +4,9 @@ function rangeInPQW = solveRangeInPerifocalFrame(semimajor_axis, eccentricity, t
 % ellipse elements
 a=semimajor_axis;
 e=eccentricity;
+nu=ture_anomaly;
 
 P=a*(1-e^2);
-r_scalar=P/(1+e*cos(true_anomaly));
+r_scalar=P/(1+e*cos(nu));
 
-rangeInPQW = [r_scalar*cos(true_anomaly);r_scalar*sin(true_anomaly);0];
+rangeInPQW = [r_scalar*cos(nu);r_scalar*sin(nu);0];

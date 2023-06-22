@@ -1,34 +1,19 @@
 function el = elevation(ENU, el_mask)
 
-%%
 % Number of row = 위성수
-% [numCols,numRows]=size(ENU);
+    number=size(ENU);
+    el=[];
 
 % Numbering ENU elements of each satellites
-% for k=0:numRows-1
-%    R_E(k+1)=ENU(3*k+1);
-%    R_N(k+1)=ENU(3*k+2);
-%    R_u(k+1)=ENU(3*k+3);
-% end
+    for k=1:number
+        R_scalar=sqrt(ENU(k,1)^2+ENU(k,2)^2+ENU(k,3)^2);
+        R_U=ENU(k,3);
+        el_temp=asind(R_U/R_scalar);
 
-% magnitude of R_rel
-% for i=0:numRows-1
-%    R_rel(i+1)=sqrt(R_E(i+1)^2+R_N(i+1)^2+R_u(k+1)^2);
-% end
-
-% creating el matrix
-% for j=0:numRows-1
-%     el(j+1)=asind(R_u(j+1)/R_rel(j+1));
-%     if el(j+1)<=el_mask
-%         el(j+1)=NaN;
-%     end
-% end
-
-r2d=180/pi;
-el=sin(ENU(3,:)/sqrt(ENU(1,:).^2+ENU(2,:).^2+ENU(3,:).^2));
-el=el*r2d;
-if el <= el_mask
-    el=NaN;
+        if el_temp >= el_mask
+            el=[el,el_temp];
+        else
+            el=[el,NaN];
+        end
+    end
 end
-
-
